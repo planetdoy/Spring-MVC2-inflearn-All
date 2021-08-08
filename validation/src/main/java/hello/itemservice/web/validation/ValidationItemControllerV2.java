@@ -163,6 +163,11 @@ public class ValidationItemControllerV2 {
         log.info("objectName ={} ",bindingResult.getObjectName());
         log.info("target ={} ", bindingResult.getTarget());
 
+        //오류메세지를 어떻게 출력할지에 따라 조건을 걸어주면 됩니다.
+        /*if (bindingResult.hasErrors()) {
+            return "validation/v2/addForm";
+        }*/
+
         //검증 로직
         if (!StringUtils.hasText(item.getItemName())) {
             //bindingResult.addError(new FieldError("item","itemName",item.getItemName(),false, new String[]{"required.item.itemName"},null, null));
