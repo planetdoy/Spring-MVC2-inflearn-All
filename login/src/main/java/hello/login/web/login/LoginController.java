@@ -101,7 +101,7 @@ public class LoginController {
 
     @PostMapping("/login")
     public String loginV4(@Valid @ModelAttribute("loginForm") LoginForm form, BindingResult bindingResult,
-                          @RequestParam("/") String requestURL,
+                          @RequestParam(defaultValue = "/") String redirectURL,
                           HttpServletRequest request) {
         if (bindingResult.hasErrors()) {
             return "login/loginForm";
@@ -119,7 +119,7 @@ public class LoginController {
         //세션에 회원의 로그인 정보를 보관
         session.setAttribute(SessionConst.LOGIN_MEMBER, loginMember);
 
-        return "redirect:" + requestURL;
+        return "redirect:" + redirectURL;
 
     }
 
